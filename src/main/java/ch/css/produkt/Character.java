@@ -2,7 +2,7 @@ package ch.css.produkt;
 
 public class Character
 {
-    private final int health = 1000;
+    private int health = 1000;
     private boolean alive = true;
     private final int level = 1;
 
@@ -17,4 +17,7 @@ public class Character
         return level;
     }
 
+    public void receiveDamage(int damage) {
+        health -= damage;
+    }
 }
