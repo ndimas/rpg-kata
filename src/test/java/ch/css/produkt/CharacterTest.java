@@ -32,7 +32,17 @@ public class CharacterTest {
 
     @Test
     public void shouldBeAlive() {
-        Boolean expededAlive = true;
-        assertEquals(expededAlive, testee.getLiveness());
+        Boolean expetedAlive = true;
+
+        assertEquals(expetedAlive, testee.getLiveness());
+    }
+
+    @Test
+    public void shouldBeDeadAfterFullDamage(){
+        Boolean expetedAlive = false;
+
+        testee.receiveDamage(1000);
+
+        assertEquals(expetedAlive, testee.getLiveness());
     }
 }
