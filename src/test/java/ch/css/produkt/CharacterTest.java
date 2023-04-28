@@ -10,6 +10,12 @@ public class CharacterTest
    private final Character testee = new Character();
 
     @Test
+    public void shouldCreateCharacterWithLevel1()
+    {
+
+        assertEquals( 1, testee.getLevel() );
+    }
+    @Test
     public void shouldCreateCharacterWith1000Health()
     {
 
