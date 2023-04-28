@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static ch.css.produkt.Character.MAX_HEALTH;
+import static ch.css.produkt.FighterType.MELEE;
+import static ch.css.produkt.FighterType.RANGED;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CharacterTest {
@@ -83,7 +85,7 @@ class CharacterTest {
 
     @Test
     void meleeFighterHasSmallRange() {
-        Character melee = new Character("melee", 5);
+        Character melee = new Character(MELEE, 5);
         int expectedRange = 2;
 
         assertEquals(expectedRange, melee.getRange());

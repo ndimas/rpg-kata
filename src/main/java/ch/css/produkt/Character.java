@@ -2,7 +2,7 @@ package ch.css.produkt;
 
 public class Character {
     static final int MAX_HEALTH = 1000;
-    private String type;
+    private FighterType type;
     private double health = MAX_HEALTH;
     private int level;
 
@@ -14,7 +14,7 @@ public class Character {
         this.level = level;
     }
 
-    public Character(String melee, int level) {
+    public Character(FighterType melee, int level) {
         this(level);
         this.type = melee;
 
