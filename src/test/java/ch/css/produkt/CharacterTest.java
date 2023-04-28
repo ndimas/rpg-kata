@@ -17,6 +17,15 @@ public class CharacterTest {
     }
 
     @Test
+    public void characterHealthShouldBe0WhenTooMuchReceiveDamageAnd() {
+        int expectedHealth = 0;
+
+        testee.receiveDamage(2000);
+
+        assertEquals(expectedHealth, testee.getHealth());
+    }
+
+    @Test
     public void shouldCreateCharacterWithLevel1() {
         int expectedLevel = 1;
 

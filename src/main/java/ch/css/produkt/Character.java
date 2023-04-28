@@ -17,6 +17,6 @@ public class Character
     }
 
     public void receiveDamage(int damage) {
-        health -= damage;
+        health = damage > health ? 0 : health - damage;
     }
 }
