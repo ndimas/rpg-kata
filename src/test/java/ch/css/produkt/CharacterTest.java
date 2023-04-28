@@ -7,10 +7,11 @@ import org.junit.Test;
 
 public class CharacterTest
 {
+   private final Character testee = new Character();
+
     @Test
     public void shouldCreateCharacter()
     {
-        Character character = new Character();
 
         assertEquals( 1000, character.getHealth() );
     }
