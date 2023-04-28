@@ -127,4 +127,14 @@ class CharacterTest {
 
         assertEquals(expectedHealth, target.getHealth());
     }
+    @Test
+    void shouldIncreaseDamageWhenAttackerBiggerLevel() {
+        Character target = new Character(1);
+        Character attacker = new Character(6);
+        short expectedHealth = 980;
+
+        attacker.dealDamage(target, 10);
+
+        assertEquals(expectedHealth, target.getHealth());
+    }
 }

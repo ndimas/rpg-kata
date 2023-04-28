@@ -21,8 +21,12 @@ public class Character {
     }
 
     private double calculateDamageFactor(Character target) {
-        if (target.getLevel()- level >= 5) {
+        int levelDiffernce = target.getLevel() - level;
+
+        if (levelDiffernce >= 5) {
             return 0.5;
+        } else if (levelDiffernce <= -5) {
+            return 2;
         }
         return 1;
     }
