@@ -90,4 +90,12 @@ class CharacterTest {
 
         assertEquals(expectedRange, melee.getRange());
     }
+
+    @Test
+    void rangedFighterHasLargeRange() {
+        Character melee = new Character(RANGED, 1);
+        int expectedRange = 20;
+
+        assertEquals(expectedRange, melee.getRange());
+    }
 }

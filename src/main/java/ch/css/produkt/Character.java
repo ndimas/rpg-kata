@@ -69,6 +69,6 @@ public class Character {
     }
 
     public int getRange() {
-        return 2;
+        return type == FighterType.MELEE ? 2 : 20;
     }
 }
