@@ -18,14 +18,14 @@ class CharacterTest {
     void characterShouldReceiveDamage() {
         int expectedHealth = 990;
 
-        testee.receiveDamage(10);
+        testee.dealDamage(testee,10);
 
         assertEquals(expectedHealth, testee.getHealth());
     }
 
     @Test
     void characterShouldReceiveHeal() {
-        testee.receiveDamage(10);
+        testee.dealDamage(testee,10);
 
         testee.receiveHeal(10);
 
@@ -43,7 +43,7 @@ class CharacterTest {
     void characterHealthShouldBe0WhenTooMuchReceiveDamageAnd() {
         int expectedHealth = 0;
 
-        testee.receiveDamage(2000);
+        testee.dealDamage(testee, 2000);
 
         assertEquals(expectedHealth, testee.getHealth());
     }
@@ -71,14 +71,14 @@ class CharacterTest {
     void shouldBeDeadAfterFullDamage() {
         boolean expectedAlive = false;
 
-        testee.receiveDamage(MAX_HEALTH);
+        testee.dealDamage(testee, MAX_HEALTH);
 
         assertEquals(expectedAlive, testee.getLiveness());
     }
 
     @Test
-    void shouldStayDeadAfterHealDeadCharacter(){
-        testee.receiveDamage(MAX_HEALTH);
+    void shouldStayDeadAfterHealDeadCharacter() {
+        testee.dealDamage(testee, MAX_HEALTH);
         boolean expectedAlive = false;
 
         testee.receiveHeal(10);

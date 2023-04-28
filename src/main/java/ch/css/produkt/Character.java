@@ -5,6 +5,10 @@ public class Character {
     private int health = MAX_HEALTH;
     private final int level = 1;
 
+    public void dealDamage(Character target, int damage){
+        target.receiveDamage(damage);
+    }
+
     public int getHealth() {
         return health;
     }
@@ -17,7 +21,7 @@ public class Character {
         return level;
     }
 
-    public void receiveDamage(int damage) {
+    private void receiveDamage(int damage) {
         health = damage > health ? 0 : health - damage;
     }
 
