@@ -19,4 +19,8 @@ public class Character
     public void receiveDamage(int damage) {
         health = damage > health ? 0 : health - damage;
     }
+
+    public void receiveHeal(int healAmount) {
+        this.health += healAmount;
+    }
 }

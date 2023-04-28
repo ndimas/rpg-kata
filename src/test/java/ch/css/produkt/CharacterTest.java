@@ -17,6 +17,16 @@ public class CharacterTest {
     }
 
     @Test
+    public void characterShouldReceiveHeal() {
+        int expectedHealth = 1000;
+        testee.receiveDamage(10);
+
+        testee.receiveHeal(10);
+
+        assertEquals(expectedHealth, testee.getHealth());
+    }
+
+    @Test
     public void characterHealthShouldBe0WhenTooMuchReceiveDamageAnd() {
         int expectedHealth = 0;
 
@@ -47,7 +57,7 @@ public class CharacterTest {
     }
 
     @Test
-    public void shouldBeDeadAfterFullDamage(){
+    public void shouldBeDeadAfterFullDamage() {
         Boolean expectedAlive = false;
 
         testee.receiveDamage(1000);
