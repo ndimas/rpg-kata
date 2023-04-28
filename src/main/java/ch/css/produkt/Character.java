@@ -6,7 +6,9 @@ public class Character {
     private final int level = 1;
 
     public void dealDamage(Character target, int damage) {
-        target.receiveDamage(damage);
+        if (target != this) {
+            target.receiveDamage(damage);
+        }
     }
 
     public int getHealth() {
