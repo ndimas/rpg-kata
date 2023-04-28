@@ -24,12 +24,22 @@ class CharacterTest {
     }
 
     @Test
-    void characterShouldReceiveHeal() {
+    void sameCharacterShouldReceiveHeal() {
         testee.dealDamage(testee,10);
 
         testee.heal(testee,10);
 
         assertEquals(MAX_HEALTH, testee.getHealth());
+    }
+
+    @Test
+    void otherCharacterShouldNotReceiveHeal() {
+        Character otherCharacter = new Character();
+        testee.dealDamage(otherCharacter,10);
+
+        testee.heal(otherCharacter,10);
+
+        assertEquals(MAX_HEALTH - 10, otherCharacter.getHealth());
     }
 
     @Test

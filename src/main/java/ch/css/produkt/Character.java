@@ -5,7 +5,7 @@ public class Character {
     private int health = MAX_HEALTH;
     private final int level = 1;
 
-    public void dealDamage(Character target, int damage){
+    public void dealDamage(Character target, int damage) {
         target.receiveDamage(damage);
     }
 
@@ -26,8 +26,11 @@ public class Character {
     }
 
     public void heal(Character target, int healAmount) {
-        target.receiveHeal(healAmount);
+        if (target == this) {
+            target.receiveHeal(healAmount);
+        }
     }
+
     private void receiveHeal(int healAmount) {
         if (getLiveness()) {
             this.health = Math.min(healAmount + health, MAX_HEALTH);
