@@ -22,10 +22,12 @@ public class Character {
 
     private double calculateDamageFactor(Character target) {
         int levelDifference = target.getLevel() - level;
+        boolean target5LevelsStronger = levelDifference >= 5;
+        boolean target5LevelsWeaker = levelDifference <= -5;
 
-        if (levelDifference >= 5) {
+        if (target5LevelsStronger) {
             return 0.5;
-        } else if (levelDifference <= -5) {
+        } else if (target5LevelsWeaker) {
             return 2;
         }
         return 1;
