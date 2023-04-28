@@ -10,9 +10,9 @@ public class CharacterTest
    private final Character testee = new Character();
 
     @Test
-    public void shouldCreateCharacter()
+    public void shouldCreateCharacterWith1000Health()
     {
 
-        assertEquals( 1000, character.getHealth() );
+        assertEquals( 1000, testee.getHealth() );
     }
 }
