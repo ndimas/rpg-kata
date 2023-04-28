@@ -8,7 +8,7 @@ public class CharacterTest {
     private final Character testee = new Character();
 
     @Test
-    public void characterShouldReceiveDamage() {
+    void characterShouldReceiveDamage() {
         int expectedHealth = 990;
 
         testee.receiveDamage(10);
@@ -17,7 +17,7 @@ public class CharacterTest {
     }
 
     @Test
-    public void characterShouldReceiveHeal() {
+    void characterShouldReceiveHeal() {
         int expectedHealth = 1000;
         testee.receiveDamage(10);
 
@@ -27,7 +27,7 @@ public class CharacterTest {
     }
 
     @Test
-    public void characterHealthShouldBe0WhenTooMuchReceiveDamageAnd() {
+    void characterHealthShouldBe0WhenTooMuchReceiveDamageAnd() {
         int expectedHealth = 0;
 
         testee.receiveDamage(2000);
@@ -36,32 +36,33 @@ public class CharacterTest {
     }
 
     @Test
-    public void shouldCreateCharacterWithLevel1() {
+    void shouldCreateCharacterWithLevel1() {
         int expectedLevel = 1;
 
         assertEquals(expectedLevel, testee.getLevel());
     }
 
     @Test
-    public void shouldCreateCharacterWith1000Health() {
+    void shouldCreateCharacterWith1000Health() {
         int expectedHealth = 1000;
 
         assertEquals(expectedHealth, testee.getHealth());
     }
 
     @Test
-    public void shouldBeAlive() {
+    void shouldBeAlive() {
         Boolean expectedAlive = true;
 
         assertEquals(expectedAlive, testee.getLiveness());
     }
 
     @Test
-    public void shouldBeDeadAfterFullDamage() {
+    void shouldBeDeadAfterFullDamage() {
         Boolean expectedAlive = false;
 
         testee.receiveDamage(1000);
 
         assertEquals(expectedAlive, testee.getLiveness());
     }
+
 }
