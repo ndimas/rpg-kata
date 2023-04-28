@@ -17,17 +17,18 @@ class CharacterTest {
     @Test
     void characterShouldReceiveDamage() {
         int expectedHealth = 990;
+        Character opponent = new Character();
 
-        testee.dealDamage(testee,10);
+        opponent.dealDamage(testee, 10);
 
         assertEquals(expectedHealth, testee.getHealth());
     }
 
     @Test
     void sameCharacterShouldReceiveHeal() {
-        testee.dealDamage(testee,10);
+        testee.dealDamage(testee, 10);
 
-        testee.heal(testee,10);
+        testee.heal(testee, 10);
 
         assertEquals(MAX_HEALTH, testee.getHealth());
     }
@@ -35,16 +36,16 @@ class CharacterTest {
     @Test
     void otherCharacterShouldNotReceiveHeal() {
         Character otherCharacter = new Character();
-        testee.dealDamage(otherCharacter,10);
+        testee.dealDamage(otherCharacter, 10);
 
-        testee.heal(otherCharacter,10);
+        testee.heal(otherCharacter, 10);
 
         assertEquals(MAX_HEALTH - 10, otherCharacter.getHealth());
     }
 
     @Test
     void healingCannotRaiseHealthAboveMax() {
-        testee.heal(testee,10);
+        testee.heal(testee, 10);
 
         assertEquals(MAX_HEALTH, testee.getHealth());
     }
@@ -52,8 +53,9 @@ class CharacterTest {
     @Test
     void characterHealthShouldBe0WhenTooMuchReceiveDamageAnd() {
         int expectedHealth = 0;
+        Character opponent = new Character();
 
-        testee.dealDamage(testee, 2000);
+        opponent.dealDamage(testee, 2000);
 
         assertEquals(expectedHealth, testee.getHealth());
     }
@@ -80,6 +82,8 @@ class CharacterTest {
     @Test
     void shouldBeDeadAfterFullDamage() {
         boolean expectedAlive = false;
+        Character opponent = new Character();
+        opponent.dealDamage(testee, MAX_HEALTH);
 
         testee.dealDamage(testee, MAX_HEALTH);
 
@@ -87,13 +91,20 @@ class CharacterTest {
     }
 
     @Test
+    void shouldNotDamageItself() {
+        testee.dealDamage(testee, 10);
+
+        assertEquals(MAX_HEALTH, testee.getHealth());
+    }
+
+    @Test
     void shouldStayDeadAfterHealDeadCharacter() {
-        testee.dealDamage(testee, MAX_HEALTH);
+        Character opponent = new Character();
+        opponent.dealDamage(testee, MAX_HEALTH);
         boolean expectedAlive = false;
 
-        testee.heal(testee,10);
+        testee.heal(testee, 10);
 
         assertEquals(expectedAlive, testee.getLiveness());
     }
-
 }
