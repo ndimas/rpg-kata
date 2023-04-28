@@ -1,9 +1,8 @@
 package ch.css.produkt;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class CharacterTest
 {
@@ -20,5 +19,11 @@ public class CharacterTest
     {
 
         assertEquals( 1000, testee.getHealth() );
+    }
+
+    @Test
+    public void shouldBeAlive(){
+        Boolean expededAlive = true;
+        assertEquals(expededAlive, testee.getLiveness());
     }
 }
