@@ -4,8 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CharacterTest {
-    private final Character testee = new Character();
+class CharacterTest {
+    private Character testee = new Character();
+
+    @BeforeEach
+    void setUp() {
+        testee = new Character();
+    }
 
     @Test
     void characterShouldReceiveDamage() {

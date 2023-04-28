@@ -1,7 +1,6 @@
 package ch.css.produkt;
 
-public class Character
-{
+public class Character {
     private int health = 1000;
     private final int level = 1;
 
@@ -10,8 +9,9 @@ public class Character
     }
 
     public Boolean getLiveness() {
-        return health>0;
+        return health > 0;
     }
+
     public int getLevel() {
         return level;
     }
