@@ -127,6 +127,7 @@ class CharacterTest {
 
         assertEquals(expectedHealth, target.getHealth());
     }
+
     @Test
     void shouldIncreaseDamageWhenAttackerBiggerLevel() {
         Character target = new Character(1);
@@ -136,5 +137,13 @@ class CharacterTest {
         attacker.dealDamage(target, 10);
 
         assertEquals(expectedHealth, target.getHealth());
+    }
+
+    @Test
+    void meleeFighterHasSmallRange() {
+        Character melee = new Character("melee", 5);
+        int expectedRange = 2;
+
+        assertEquals(expectedRange, melee.getRange());
     }
 }

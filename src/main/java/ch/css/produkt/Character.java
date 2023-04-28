@@ -2,6 +2,7 @@ package ch.css.produkt;
 
 public class Character {
     static final int MAX_HEALTH = 1000;
+    private String type;
     private double health = MAX_HEALTH;
     private int level;
 
@@ -11,6 +12,12 @@ public class Character {
 
     public Character(int level) {
         this.level = level;
+    }
+
+    public Character(String melee, int level) {
+        this(level);
+        this.type = melee;
+
     }
 
     public void dealDamage(Character target, int damage) {
@@ -59,5 +66,9 @@ public class Character {
         if (getLiveness()) {
             this.health = Math.min(healAmount + health, MAX_HEALTH);
         }
+    }
+
+    public int getRange() {
+        return 2;
     }
 }
