@@ -41,17 +41,17 @@ public class CharacterTest {
 
     @Test
     public void shouldBeAlive() {
-        Boolean expetedAlive = true;
+        Boolean expectedAlive = true;
 
-        assertEquals(expetedAlive, testee.getLiveness());
+        assertEquals(expectedAlive, testee.getLiveness());
     }
 
     @Test
     public void shouldBeDeadAfterFullDamage(){
-        Boolean expetedAlive = false;
+        Boolean expectedAlive = false;
 
         testee.receiveDamage(1000);
 
-        assertEquals(expetedAlive, testee.getLiveness());
+        assertEquals(expectedAlive, testee.getLiveness());
     }
 }
