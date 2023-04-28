@@ -3,6 +3,7 @@ package ch.css.produkt;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static ch.css.produkt.Character.MAX_HEALTH;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CharacterTest {
@@ -24,21 +25,18 @@ class CharacterTest {
 
     @Test
     void characterShouldReceiveHeal() {
-        int expectedHealth = 1000;
         testee.receiveDamage(10);
 
         testee.receiveHeal(10);
 
-        assertEquals(expectedHealth, testee.getHealth());
+        assertEquals(MAX_HEALTH, testee.getHealth());
     }
 
     @Test
     void healingCannotRaiseHealthAboveMax() {
-        int expectedHealth = 1000;
-
         testee.receiveHeal(10);
 
-        assertEquals(expectedHealth, testee.getHealth());
+        assertEquals(MAX_HEALTH, testee.getHealth());
     }
 
     @Test
@@ -58,10 +56,8 @@ class CharacterTest {
     }
 
     @Test
-    void shouldCreateCharacterWith1000Health() {
-        int expectedHealth = 1000;
-
-        assertEquals(expectedHealth, testee.getHealth());
+    void shouldCreateCharacterWithMaxHealth() {
+        assertEquals(MAX_HEALTH, testee.getHealth());
     }
 
     @Test
@@ -75,14 +71,14 @@ class CharacterTest {
     void shouldBeDeadAfterFullDamage() {
         boolean expectedAlive = false;
 
-        testee.receiveDamage(1000);
+        testee.receiveDamage(MAX_HEALTH);
 
         assertEquals(expectedAlive, testee.getLiveness());
     }
 
     @Test
     void shouldStayDeadAfterHealDeadCharacter(){
-        testee.receiveDamage(1000);
+        testee.receiveDamage(MAX_HEALTH);
         boolean expectedAlive = false;
 
         testee.receiveHeal(10);
