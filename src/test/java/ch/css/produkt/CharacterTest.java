@@ -73,9 +73,19 @@ class CharacterTest {
 
     @Test
     void shouldBeDeadAfterFullDamage() {
-        Boolean expectedAlive = false;
+        boolean expectedAlive = false;
 
         testee.receiveDamage(1000);
+
+        assertEquals(expectedAlive, testee.getLiveness());
+    }
+
+    @Test
+    void shouldStayDeadAfterHealDeadCharacter(){
+        testee.receiveDamage(1000);
+        boolean expectedAlive = false;
+
+        testee.receiveHeal(10);
 
         assertEquals(expectedAlive, testee.getLiveness());
     }

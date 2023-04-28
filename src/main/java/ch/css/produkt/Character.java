@@ -22,6 +22,8 @@ public class Character {
     }
 
     public void receiveHeal(int healAmount) {
-        this.health = Math.min(healAmount + health, MAX_HEALTH);
+        if (health > 0) {
+            this.health = Math.min(healAmount + health, MAX_HEALTH);
+        }
     }
 }
