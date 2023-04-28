@@ -2,7 +2,7 @@ package ch.css.produkt;
 
 public class Character {
     static final int MAX_HEALTH = 1000;
-    private int health = MAX_HEALTH;
+    private double health = MAX_HEALTH;
     private int level;
 
     public Character() {
@@ -15,11 +15,19 @@ public class Character {
 
     public void dealDamage(Character target, int damage) {
         if (target != this) {
-            target.receiveDamage(damage);
+            double damageFactor = calculateDamageFactor(target);
+            target.receiveDamage(damage * damageFactor);
         }
     }
 
-    public int getHealth() {
+    private double calculateDamageFactor(Character target) {
+        if (target.getLevel()- level >= 5) {
+            return 0.5;
+        }
+        return 1;
+    }
+
+    public double getHealth() {
         return health;
     }
 
@@ -31,7 +39,7 @@ public class Character {
         return level;
     }
 
-    private void receiveDamage(int damage) {
+    private void receiveDamage(double damage) {
         health = damage > health ? 0 : health - damage;
     }
 

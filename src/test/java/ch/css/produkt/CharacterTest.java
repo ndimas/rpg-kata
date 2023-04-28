@@ -109,11 +109,22 @@ class CharacterTest {
     }
 
     @Test
-    void shouldCreateCharacterWithCustomLevel(){
+    void shouldCreateCharacterWithCustomLevel() {
         int expectedLevel = 5;
 
         Character actual = new Character(expectedLevel);
 
         assertEquals(expectedLevel, actual.getLevel());
+    }
+
+    @Test
+    void shouldReduceDamageWhenAttackerSmallerLevel() {
+        Character target = new Character(6);
+        Character attacker = new Character(1);
+        short expectedHealth = 995;
+
+        attacker.dealDamage(target, 10);
+
+        assertEquals(expectedHealth, target.getHealth());
     }
 }
