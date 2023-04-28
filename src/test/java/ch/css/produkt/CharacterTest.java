@@ -33,6 +33,15 @@ class CharacterTest {
     }
 
     @Test
+    void healingCannotRaiseHealthAboveMax() {
+        int expectedHealth = 1000;
+
+        testee.receiveHeal(10);
+
+        assertEquals(expectedHealth, testee.getHealth());
+    }
+
+    @Test
     void characterHealthShouldBe0WhenTooMuchReceiveDamageAnd() {
         int expectedHealth = 0;
 

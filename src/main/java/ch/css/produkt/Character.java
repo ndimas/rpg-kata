@@ -1,7 +1,8 @@
 package ch.css.produkt;
 
 public class Character {
-    private int health = 1000;
+    private static final int MAX_HEALTH = 1000;
+    private int health = MAX_HEALTH;
     private final int level = 1;
 
     public int getHealth() {
@@ -21,6 +22,6 @@ public class Character {
     }
 
     public void receiveHeal(int healAmount) {
-        this.health += healAmount;
+        this.health = Math.min(healAmount + health, MAX_HEALTH);
     }
 }
