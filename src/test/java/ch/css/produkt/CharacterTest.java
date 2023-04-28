@@ -107,4 +107,13 @@ class CharacterTest {
 
         assertEquals(expectedAlive, testee.getLiveness());
     }
+
+    @Test
+    void shouldCreateCharacterWithCustomLevel(){
+        int expectedLevel = 5;
+
+        Character actual = new Character(expectedLevel);
+
+        assertEquals(expectedLevel, actual.getLevel());
+    }
 }

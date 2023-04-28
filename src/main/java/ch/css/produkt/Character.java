@@ -3,7 +3,15 @@ package ch.css.produkt;
 public class Character {
     static final int MAX_HEALTH = 1000;
     private int health = MAX_HEALTH;
-    private final int level = 1;
+    private int level;
+
+    public Character() {
+        this(1);
+    }
+
+    public Character(int level) {
+        this.level = level;
+    }
 
     public void dealDamage(Character target, int damage) {
         if (target != this) {
