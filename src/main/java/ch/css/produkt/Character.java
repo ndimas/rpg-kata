@@ -25,7 +25,10 @@ public class Character {
         health = damage > health ? 0 : health - damage;
     }
 
-    public void receiveHeal(int healAmount) {
+    public void heal(Character target, int healAmount) {
+        target.receiveHeal(healAmount);
+    }
+    private void receiveHeal(int healAmount) {
         if (getLiveness()) {
             this.health = Math.min(healAmount + health, MAX_HEALTH);
         }

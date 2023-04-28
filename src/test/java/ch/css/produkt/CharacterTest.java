@@ -27,14 +27,14 @@ class CharacterTest {
     void characterShouldReceiveHeal() {
         testee.dealDamage(testee,10);
 
-        testee.receiveHeal(10);
+        testee.heal(testee,10);
 
         assertEquals(MAX_HEALTH, testee.getHealth());
     }
 
     @Test
     void healingCannotRaiseHealthAboveMax() {
-        testee.receiveHeal(10);
+        testee.heal(testee,10);
 
         assertEquals(MAX_HEALTH, testee.getHealth());
     }
@@ -81,7 +81,7 @@ class CharacterTest {
         testee.dealDamage(testee, MAX_HEALTH);
         boolean expectedAlive = false;
 
-        testee.receiveHeal(10);
+        testee.heal(testee,10);
 
         assertEquals(expectedAlive, testee.getLiveness());
     }
