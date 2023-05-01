@@ -6,7 +6,6 @@ import java.util.List;
 public class Game {
     private final List<BoardCharacter> characters;
 
-
     public Game(BoardCharacter... characters) {
         this.characters = Arrays.asList(characters);
     }
